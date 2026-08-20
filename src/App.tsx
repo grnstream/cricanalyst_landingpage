@@ -40,12 +40,12 @@ const faqs = [
   {
     question: "What is CricAnalyst?",
     answer:
-      "CricAnalyst is a cricket analytics platform that enables real time match capture, ball by ball data logging, and advanced performance analysis using video and visual insights.",
+      "CricAnalyst is a cricket analytics platform that enables real-time match capture, ball-by-ball data logging, and advanced performance analysis through video and visual insights.",
   },
   {
     question: "How does match capture work?",
     answer:
-      "Our match capture tool allows you to record live video and tag events ball by ball, syncing the data directly with the footage for immediate analysis.",
+      "Our match capture tool lets you record live video and tag events ball by ball, automatically syncing match data with the footage for immediate analysis.",
   },
   {
     question: "What kind of insights can I get?",
@@ -155,9 +155,9 @@ function App() {
               className="flex flex-col items-start lg:items-end gap-10 lg:gap-14 lg:max-w-[400px]"
             >
               <p className="text-gray-300 text-lg md:text-xl lg:text-right leading-relaxed font-medium">
-                Turn live match footage into powerful insights with real time
-                tagging, video analysis, and advanced performance tracking
-                designed for modern cricket.
+                Turn live match footage into powerful insights with real-time
+                ball-by-ball recording, video sniffing, advanced performance
+                tracking, and dynamic visualisation for modern cricket.
               </p>
 
               {/* Member Widget */}
@@ -179,10 +179,10 @@ function App() {
                 </div>
                 <div className="flex flex-col items-start text-left">
                   <span className="text-white font-bold text-[1.35rem] leading-tight">
-                    30k+
+                    Now
                   </span>
                   <span className="text-gray-300 text-sm font-medium">
-                    Member Joined
+                    Members Joining
                   </span>
                 </div>
               </div>
@@ -213,15 +213,15 @@ function App() {
             variants={fadeInUp}
             className="col-span-1 lg:col-span-9 flex flex-col gap-10 max-w-5xl"
           >
-            <h2 className="text-[2rem] md:text-5xl lg:text-[3.25rem] font-bold text-black leading-[1.15] tracking-tight">
-              Cricket is more than a game of runs and wickets. It's a game of
-              data, decisions, and precision.
+            <h2 className="text-[2rem] md:text-5xl lg:text-[2.5rem] font-bold text-black leading-[1.15] tracking-tight">
+              Cricket is more than runs and wickets. It’s a game of data,
+              decisions, and precision.
             </h2>
             <p className="text-gray-500 text-lg md:text-xl lg:text-[1.35rem] leading-[1.6]">
-              We provide a complete platform to capture, tag, and analyze
-              matches in real time—combining video, ball-by-ball data, and
-              advanced visualizations to help you understand performance and
-              make smarter cricket decisions.
+              Our all-in-one Cricanalyst platform captures and analyzes matches
+              in real time combining video, ball-by-ball data, performance
+              tracking, and powerful visualizations to turn every match into
+              actionable cricket insights.
             </p>
           </motion.div>
         </div>
@@ -284,7 +284,7 @@ function App() {
               },
               {
                 title: "Video & Data Insights",
-                desc: "Access recorded clips, download match data, generate reports to review performance improve decision making.",
+                desc: "Access recorded clips, download match data, generate reports to review performance and improve decision making.",
                 image: img3,
               },
             ].map((card, i) => (
@@ -575,12 +575,12 @@ function App() {
                     href="mailto:info@cricanalyst.com"
                     className="hover:text-white transition-colors"
                   >
-                    info@cricanalyst.com
+                    info@cricanalyst.io
                   </a>
                 </div>
                 <div className="text-gray-400 text-sm flex flex-col gap-1 mt-2">
                   <span>Phone:</span>
-                  <span>+123 456 7890</span>
+                  <span>+94 76 889 0999</span>
                 </div>
               </div>
               <div className="flex flex-col gap-4">
@@ -680,7 +680,16 @@ function App() {
               className="h-16 md:h-24 lg:h-32 object-contain"
             />
             <p className="text-gray-500 text-sm pb-2 lg:pb-6">
-              © 2026 CricAnalyst. All rights reserved.
+              © 2026{" "}
+              <a
+                href="https://greenstream.lk/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                GreenStream
+              </a>
+              . All rights reserved.
             </p>
           </motion.div>
         </div>
