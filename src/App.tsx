@@ -19,6 +19,8 @@ import img2 from "./assets/2.png";
 import img3 from "./assets/3.png";
 import img4 from "./assets/4.png";
 
+const PLATFORM_URL = import.meta.env.VITE_PLATFORM_URL as string;
+
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
@@ -112,12 +114,22 @@ function App() {
             </nav>
 
             <div className="flex items-center gap-3">
-              <button className="bg-[#00B786] hover:bg-[#009e74] transition-colors text-white font-semibold rounded-full px-7 py-3 text-sm">
+              <a
+                href={PLATFORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#00B786] hover:bg-[#009e74] transition-colors text-white font-semibold rounded-full px-7 py-3 text-sm"
+              >
                 Go to Platform
-              </button>
-              <button className="bg-[#00B786] hover:bg-[#009e74] transition-colors text-white rounded-full w-[46px] h-[46px] flex items-center justify-center">
+              </a>
+              <a
+                href={PLATFORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#00B786] hover:bg-[#009e74] transition-colors text-white rounded-full w-[46px] h-[46px] flex items-center justify-center"
+              >
                 <ArrowUpRight className="w-5 h-5 stroke-[2.5]" />
-              </button>
+              </a>
             </div>
           </motion.header>
 
