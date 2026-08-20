@@ -1,9 +1,9 @@
 import { useState } from "react";
 import {
   ArrowUpRight,
-  ArrowLeft,
-  ArrowRight,
-  Quote,
+  // ArrowLeft,
+  // ArrowRight,
+  // Quote,
   Plus,
   Minus,
   Send,
@@ -100,17 +100,16 @@ function App() {
             </div>
 
             <nav className="hidden lg:flex items-center gap-10 bg-white/15 backdrop-blur-md border border-white/10 rounded-full px-10 py-3.5">
-              {["About Us", "Features", "Testimonials", "FAQs", "Contact"].map(
-                (item) => (
-                  <a
-                    key={item}
-                    href={`#${item.toLowerCase().replace(" ", "-")}`}
-                    className="text-gray-200 hover:text-white text-sm font-medium transition-colors"
-                  >
-                    {item}
-                  </a>
-                ),
-              )}
+              {/* {["About Us", "Features", "Testimonials", "FAQs", "Contact"].map( */}
+              {["About Us", "Features", "FAQs", "Contact"].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase().replace(" ", "-")}`}
+                  className="text-gray-200 hover:text-white text-sm font-medium transition-colors"
+                >
+                  {item}
+                </a>
+              ))}
             </nav>
 
             <div className="flex items-center gap-3">
