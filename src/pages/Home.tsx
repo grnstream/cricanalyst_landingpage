@@ -11,7 +11,7 @@ import {
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import heroBg from "../assets/hero image.png";
-import logo from "../assets/logo.png";
+import logoWhite from "../assets/logo-white.png";
 import cricketerImg from "../assets/cricketer.png";
 import groundImg from "../assets/ground.png";
 import img1 from "../assets/1.png";
@@ -94,9 +94,9 @@ function Home() {
           >
             <div className="flex-shrink-0 cursor-pointer">
               <img
-                src={logo}
+                src={logoWhite}
                 alt="CricAnalyst Logo"
-                className="h-20 md:h-28 lg:h-32 object-contain w-auto"
+                className="h-8 md:h-10 lg:h-11 object-contain w-auto"
               />
             </div>
 

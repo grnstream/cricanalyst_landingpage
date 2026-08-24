@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import logo from "../assets/logo.png";
+import logoWhite from "../assets/logo-white.png";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -37,8 +37,8 @@ function Footer() {
           <div className="col-span-1 md:col-span-5 lg:col-span-4 flex flex-col gap-6">
             <p className="text-gray-400 text-base lg:text-lg leading-relaxed max-w-sm">
               A modern cricket analytics platform delivering real-time match
-              capture, ball-by-ball insights, and advanced performance
-              analysis for teams, analysts, and coaches.
+              capture, ball-by-ball insights, and advanced performance analysis
+              for teams, analysts, and coaches.
             </p>
           </div>
 
@@ -130,7 +130,14 @@ function Footer() {
                     strokeLinejoin="round"
                     viewBox="0 0 24 24"
                   >
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <rect
+                      x="2"
+                      y="2"
+                      width="20"
+                      height="20"
+                      rx="5"
+                      ry="5"
+                    ></rect>
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                   </svg>
@@ -178,9 +185,9 @@ function Footer() {
           className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 pt-8 mt-12"
         >
           <img
-            src={logo}
+            src={logoWhite}
             alt="CricAnalyst Logo"
-            className="h-16 md:h-24 lg:h-32 object-contain"
+            className="h-10 md:h-12 lg:h-16 object-contain w-auto"
           />
           <p className="text-gray-500 text-sm pb-2 lg:pb-6">
             © 2026{" "}
