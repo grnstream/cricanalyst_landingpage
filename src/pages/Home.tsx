@@ -191,7 +191,7 @@ function Home() {
         </div>
       </section>
 
-      {/* About Us Section */}
+      {/* CricAnalyst Section */}
       <motion.section
         id="about-us"
         initial="hidden"
@@ -199,6 +199,47 @@ function Home() {
         viewport={{ once: true, amount: 0.3 }}
         variants={staggerContainer}
         className="w-full bg-[#F6F7F9] py-24 lg:py-36 px-4 md:px-8 lg:px-12"
+      >
+        <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 bg-white rounded-[2rem] lg:rounded-[3rem] p-8 md:p-12 lg:p-16">
+          {/* Left column: Badge */}
+          <motion.div variants={fadeInUp} className="col-span-1 lg:col-span-3">
+            <div className="inline-flex items-center justify-center px-6 py-2 border border-gray-300 rounded-full text-gray-800 text-sm font-medium tracking-wide">
+              CricAnalyst
+            </div>
+          </motion.div>
+
+          {/* Right column: Content */}
+          <motion.div
+            variants={fadeInUp}
+            className="col-span-1 lg:col-span-9 flex flex-col gap-10 max-w-5xl"
+          >
+            <h2 className="text-[2rem] md:text-5xl lg:text-[2.5rem] font-bold text-black leading-[1.15] tracking-tight">
+              Cricket is more than runs and wickets. It's a game of data,
+              decisions, and precision.
+            </h2>
+            <div className="flex flex-col gap-4 text-gray-500 text-lg md:text-xl lg:text-[1.35rem] leading-[1.6]">
+              <p>
+                CricAnalyst is a ball-by-ball cricket recording and analysis
+                platform designed to capture match data in real time and
+                transform it into meaningful performance insights. By combining
+                structured match recording, video, statistics, and
+                visualisations, it creates a comprehensive digital record beyond
+                the traditional scorecard, enabling detailed analysis of every
+                aspect of the game.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* About Us Section */}
+      <motion.section
+        id="about-us"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={staggerContainer}
+        className="w-full bg-[#F6F7F9] pb-24 lg:pb-36 px-4 md:px-8 lg:px-12"
       >
         <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
           {/* Left column: Badge */}
@@ -214,8 +255,8 @@ function Home() {
             className="col-span-1 lg:col-span-9 flex flex-col gap-10 max-w-5xl"
           >
             <h2 className="text-[2rem] md:text-5xl lg:text-[2.5rem] font-bold text-black leading-[1.15] tracking-tight">
-              Cricket is more than runs and wickets. It's a game of data,
-              decisions, and precision.
+              Built through collaboration. Driven by a shared passion for
+              cricket and technology.
             </h2>
             <div className="flex flex-col gap-4 text-gray-500 text-lg md:text-xl lg:text-[1.35rem] leading-[1.6]">
               <p>
@@ -228,10 +269,6 @@ function Home() {
                 Our shared vision is to create practical, modern solutions that
                 contribute to the digital transformation of cricket and support
                 the evolving needs of the game.
-              </p>
-              <p>
-                Built through collaboration. Driven by a shared passion for
-                cricket and technology.
               </p>
             </div>
           </motion.div>
