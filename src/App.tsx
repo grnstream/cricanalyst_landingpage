@@ -40,7 +40,7 @@ const faqs = [
   {
     question: "What is CricAnalyst?",
     answer:
-      "CricAnalyst is a cricket analytics platform that enables real-time match capture, ball-by-ball data logging, and advanced performance analysis through video and visual insights.",
+      "CricAnalyst is a ball-by-ball cricket recording and analysis platform designed to capture match data in real time and transform it into meaningful performance insights. It combines structured match recording, video, statistics, and visualisations to help teams, coaches, analysts, and players better understand the game.This creates a structured digital record that goes beyond traditional scorecards, helping analysts understand and evaluate every aspect of the game.",
   },
   {
     question: "How does match capture work?",
@@ -216,12 +216,23 @@ function App() {
               Cricket is more than runs and wickets. It’s a game of data,
               decisions, and precision.
             </h2>
-            <p className="text-gray-500 text-lg md:text-xl lg:text-[1.35rem] leading-[1.6]">
-              Our all-in-one Cricanalyst platform captures and analyzes matches
-              in real time combining video, ball-by-ball data, performance
-              tracking, and powerful visualizations to turn every match into
-              actionable cricket insights.
-            </p>
+            <div className="flex flex-col gap-4 text-gray-500 text-lg md:text-xl lg:text-[1.35rem] leading-[1.6]">
+              <p>
+                CricAnalyst is a collaborative initiative by Green Stream
+                Systems & Solutions and TryC Analytics, bringing together
+                technology and cricket analysis expertise to create a modern
+                platform for the game.
+              </p>
+              <p>
+                Our shared vision is to create practical, modern solutions that
+                contribute to the digital transformation of cricket and support
+                the evolving needs of the game.
+              </p>
+              <p>
+                Built through collaboration. Driven by a shared passion for
+                cricket and technology.
+              </p>
+            </div>
           </motion.div>
         </div>
       </motion.section>
@@ -250,7 +261,7 @@ function App() {
 
             {/* Title & Description */}
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 lg:gap-20">
-              <h2 className="text-[2rem] md:text-5xl lg:text-[3.25rem] font-bold text-black leading-[1.15] tracking-tight max-w-2xl">
+              <h2 className="text-[2rem] md:text-5xl lg:text-[2.5rem] font-bold text-black leading-[1.15] tracking-tight max-w-2xl">
                 Your Complete Cricket Analysis Platform
               </h2>
               <p className="text-gray-500 text-lg md:text-xl leading-[1.6] lg:text-right max-w-xl">
@@ -401,7 +412,7 @@ function App() {
                   FAQs
                 </div>
               </div>
-              <h2 className="text-[2rem] md:text-5xl font-bold text-black leading-[1.15] tracking-tight">
+              <h2 className="text-[2rem] md:text-5xl lg:text-[2.5rem] font-bold text-black leading-[1.15] tracking-tight">
                 Got Questions?
                 <br />
                 We've Got Answers
