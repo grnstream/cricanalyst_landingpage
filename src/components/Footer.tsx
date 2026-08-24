@@ -184,11 +184,17 @@ function Footer() {
           variants={fadeInUp}
           className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 pt-8 mt-12"
         >
-          <img
-            src={logoWhite}
-            alt="CricAnalyst Logo"
-            className="h-10 md:h-12 lg:h-16 object-contain w-auto"
-          />
+          <Link
+            to="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="flex-shrink-0"
+          >
+            <img
+              src={logoWhite}
+              alt="CricAnalyst Logo"
+              className="h-10 md:h-12 lg:h-16 object-contain w-auto"
+            />
+          </Link>
           <p className="text-gray-500 text-sm pb-2 lg:pb-6">
             © 2026{" "}
             <a
