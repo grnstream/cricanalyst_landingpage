@@ -1,24 +1,23 @@
 import { useState } from "react";
 import {
   ArrowUpRight,
-  // ArrowLeft,
-  // ArrowRight,
-  // Quote,
   Plus,
   Minus,
   Send,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import heroBg from "../assets/hero image.png";
-import logoWhite from "../assets/logo-white.png";
-import cricketerImg from "../assets/cricketer.png";
-import groundImg from "../assets/ground.png";
-import img1 from "../assets/1.png";
-import img2 from "../assets/2.png";
-import img3 from "../assets/3.png";
-import img4 from "../assets/4.png";
+import heroBg from "../assets/hero-bg.webp";
+import heroBgMobile from "../assets/hero-bg-mobile.webp";
+import logoWhite from "../assets/logo-white.webp";
+import cricketerImg from "../assets/cricketer.webp";
+import groundImg from "../assets/ground.webp";
+import img1 from "../assets/1.webp";
+import img2 from "../assets/2.webp";
+import img3 from "../assets/3.webp";
+import img4 from "../assets/4.webp";
 import Footer from "../components/Footer";
+import Seo from "../components/Seo";
 
 const PLATFORM_URL = import.meta.env.VITE_PLATFORM_URL as string;
 
@@ -41,7 +40,7 @@ const faqs = [
   {
     question: "What is CricAnalyst?",
     answer:
-      "CricAnalyst is a ball-by-ball cricket recording and analysis platform designed to capture match data in real time and transform it into meaningful performance insights. It combines structured match recording, video, statistics, and visualisations to help teams, coaches, analysts, and players better understand the game.This creates a structured digital record that goes beyond traditional scorecards, helping analysts understand and evaluate every aspect of the game.",
+      "CricAnalyst is a ball-by-ball cricket recording and analysis platform designed to capture match data in real time and transform it into meaningful performance insights. It combines structured match recording, video, statistics, and visualisations to help teams, coaches, analysts, and players better understand the game. This creates a structured digital record that goes beyond traditional scorecards, helping analysts understand and evaluate every aspect of the game.",
   },
   {
     question: "How does match capture work?",
@@ -60,10 +59,31 @@ const faqs = [
   },
 ];
 
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
 function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+
   return (
-    <main className="w-full">
+    <main className="w-full overflow-x-hidden">
+      <Seo
+        title="CricAnalyst - Cricket Ball-by-Ball Analysis & Match Capture Platform"
+        description="Turn live match footage into powerful insights with real-time ball-by-ball recording, video analysis, wagon wheels, pitch maps, and dynamic visualisations."
+        canonicalUrl="https://cricanalyst.io/"
+        structuredData={faqStructuredData}
+      />
+
       {/* Hero Section */}
       <section className="relative min-h-screen w-full bg-[#0a0a0a] overflow-hidden">
         {/* Background Image */}
@@ -73,11 +93,22 @@ function Home() {
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="absolute inset-0 z-0"
         >
-          <img
-            src={heroBg}
-            alt="Cricket players high-fiving"
-            className="w-full h-full object-cover object-center"
-          />
+          <picture className="w-full h-full">
+            <source
+              media="(max-width: 768px)"
+              srcSet={heroBgMobile}
+              type="image/webp"
+            />
+            <img
+              src={heroBg}
+              alt="Cricket match live video capture and analysis"
+              width={1920}
+              height={1067}
+              fetchPriority="high"
+              decoding="async"
+              className="w-full h-full object-cover object-center"
+            />
+          </picture>
           {/* Dark gradients for text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-[#0a0a0a]" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/70 via-transparent to-[#0a0a0a]/30" />
@@ -92,16 +123,26 @@ function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex items-center justify-between"
           >
-            <div className="flex-shrink-0 cursor-pointer">
+            <a
+              href="/"
+              aria-label="CricAnalyst Home"
+              className="flex-shrink-0 cursor-pointer"
+            >
               <img
                 src={logoWhite}
                 alt="CricAnalyst Logo"
+                width={160}
+                height={36}
+                fetchPriority="high"
+                decoding="async"
                 className="h-8 md:h-10 lg:h-11 object-contain w-auto"
               />
-            </div>
+            </a>
 
-            <nav className="hidden lg:flex items-center gap-10 bg-white/15 backdrop-blur-md border border-white/10 rounded-full px-10 py-3.5">
-              {/* {["About Us", "Features", "Testimonials", "FAQs", "Contact"].map( */}
+            <nav
+              aria-label="Primary Navigation"
+              className="hidden lg:flex items-center gap-10 bg-white/15 backdrop-blur-md border border-white/10 rounded-full px-10 py-3.5"
+            >
               {["About Us", "Features", "FAQs", "Contact"].map((item) => (
                 <a
                   key={item}
@@ -118,7 +159,7 @@ function Home() {
                 href={PLATFORM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#00B786] hover:bg-[#009e74] transition-colors text-white font-semibold rounded-full px-7 py-3 text-sm"
+                className="bg-[#00B786] hover:bg-[#009e74] transition-colors text-white font-semibold rounded-full px-5 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-sm whitespace-nowrap"
               >
                 Go to Platform
               </a>
@@ -126,9 +167,10 @@ function Home() {
                 href={PLATFORM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#00B786] hover:bg-[#009e74] transition-colors text-white rounded-full w-[46px] h-[46px] flex items-center justify-center"
+                aria-label="Launch CricAnalyst Platform in new tab"
+                className="bg-[#00B786] hover:bg-[#009e74] transition-colors text-white rounded-full w-[38px] sm:w-[46px] h-[38px] sm:h-[46px] flex items-center justify-center flex-shrink-0"
               >
-                <ArrowUpRight className="w-5 h-5 stroke-[2.5]" />
+                <ArrowUpRight className="w-4 sm:w-5 h-4 sm:h-5 stroke-[2.5]" />
               </a>
             </div>
           </motion.header>
@@ -142,7 +184,7 @@ function Home() {
           >
             {/* Left: Large Headline */}
             <motion.div variants={fadeInUp} className="w-full">
-              <h1 className="text-white text-[3.5rem] md:text-7xl lg:text-[7rem] font-bold leading-[1.05] tracking-tight">
+              <h1 className="text-white text-4xl sm:text-5xl md:text-7xl lg:text-[7rem] font-bold leading-[1.08] tracking-tight break-words">
                 See the Game <br />
                 Beyond the <br />
                 Scoreboard
@@ -154,7 +196,7 @@ function Home() {
               variants={fadeInUp}
               className="flex flex-col items-start lg:items-end gap-10 lg:gap-14 lg:max-w-[400px]"
             >
-              <p className="text-gray-300 text-lg md:text-xl lg:text-right leading-relaxed font-medium">
+              <p className="text-gray-300 text-base sm:text-lg md:text-xl lg:text-right leading-relaxed font-medium">
                 Turn live match footage into powerful insights with real-time
                 ball-by-ball recording, video sniffing, advanced performance
                 tracking, and dynamic visualisation for modern cricket.
@@ -171,7 +213,11 @@ function Home() {
                     >
                       <img
                         src={`https://i.pravatar.cc/100?img=${i + 10}`}
-                        alt="User avatar"
+                        alt="Active platform user"
+                        width={48}
+                        height={48}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -191,9 +237,9 @@ function Home() {
         </div>
       </section>
 
-      {/* CricAnalyst Section */}
+      {/* CricAnalyst Overview Section (Fixed duplicate ID to 'overview') */}
       <motion.section
-        id="about-us"
+        id="overview"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
@@ -303,7 +349,7 @@ function Home() {
                 Your Complete Cricket Analysis Platform
               </h2>
               <p className="text-gray-500 text-lg md:text-xl leading-[1.6] lg:text-right max-w-xl">
-                From live match capture to deep performance insightst
+                From live match capture to deep performance insights,
                 CricAnalyst provides everything you need to record, analyze, and
                 understand the game at every level.
               </p>
@@ -345,6 +391,10 @@ function Home() {
                   <img
                     src={card.image}
                     alt={card.title}
+                    width={640}
+                    height={360}
+                    loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 )}
@@ -405,6 +455,15 @@ function Home() {
               {faqs.map((faq, idx) => (
                 <div
                   key={idx}
+                  role="button"
+                  tabIndex={0}
+                  aria-expanded={openFaq === idx}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setOpenFaq(openFaq === idx ? null : idx);
+                    }
+                  }}
                   className={`flex flex-col py-6 md:py-8 border-gray-200 cursor-pointer transition-all ${idx !== 0 ? "border-t" : ""}`}
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
                 >
@@ -454,7 +513,11 @@ function Home() {
           <div className="absolute inset-0 rounded-[2rem] lg:rounded-[3rem] overflow-hidden bg-gray-900">
             <img
               src={groundImg}
-              alt="Cricket Ground"
+              alt="Cricket Stadium Ground"
+              width={1400}
+              height={478}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover opacity-60"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
@@ -467,27 +530,38 @@ function Home() {
               variants={fadeInUp}
               className="w-full md:w-3/5 lg:w-1/2 flex flex-col gap-6 lg:gap-8 relative z-20"
             >
-              <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-bold text-white leading-[1.1] tracking-tight drop-shadow-lg">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] font-bold text-white leading-[1.1] tracking-tight drop-shadow-lg">
                 Turn Every Match
                 <br />
                 Into Insight
               </h2>
-              <p className="text-gray-200 text-lg md:text-xl leading-[1.6] max-w-lg drop-shadow">
+              <p className="text-gray-200 text-base sm:text-lg md:text-xl leading-[1.6] max-w-lg drop-shadow">
                 Start capturing, analyzing, and understanding cricket like never
                 before with real-time data, video insights, and powerful
                 analytics tools.
               </p>
 
-              <div className="mt-4 relative max-w-md">
+              <form
+                onSubmit={(e) => e.preventDefault()}
+                className="mt-4 relative max-w-md w-full"
+              >
                 <input
                   type="email"
+                  id="cta-email"
+                  name="email"
+                  autoComplete="email"
+                  aria-label="Enter your email to get started with CricAnalyst"
                   placeholder="Enter your email to get started..."
-                  className="w-full bg-white/20 backdrop-blur-md border border-white/30 text-white placeholder-gray-300 rounded-full py-4 pl-6 pr-16 outline-none focus:bg-white/30 transition-all"
+                  className="w-full bg-white/20 backdrop-blur-md border border-white/30 text-white placeholder-gray-300 rounded-full py-3.5 sm:py-4 pl-5 sm:pl-6 pr-14 sm:pr-16 outline-none focus:bg-white/30 transition-all text-sm sm:text-base"
                 />
-                <button className="absolute right-2 top-2 bottom-2 w-10 md:w-12 bg-black rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors">
-                  <Send className="w-5 h-5 text-white ml-[-2px]" />
+                <button
+                  type="submit"
+                  aria-label="Submit email to get started"
+                  className="absolute right-2 top-2 bottom-2 w-10 md:w-12 bg-black rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
+                >
+                  <Send className="w-4 sm:w-5 h-4 sm:h-5 text-white ml-[-2px]" />
                 </button>
-              </div>
+              </form>
             </motion.div>
 
             {/* Right: Players Image */}
@@ -497,7 +571,11 @@ function Home() {
             >
               <img
                 src={cricketerImg}
-                alt="Cricketers"
+                alt="Professional Cricket Players"
+                width={604}
+                height={556}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-contain object-bottom lg:object-right-bottom drop-shadow-2xl"
               />
             </motion.div>

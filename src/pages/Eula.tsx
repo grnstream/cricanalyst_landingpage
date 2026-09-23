@@ -1,9 +1,15 @@
 import LegalLayout from "../components/LegalLayout";
 import LegalSection from "../components/LegalSection";
+import Seo from "../components/Seo";
 
 function Eula() {
   return (
     <LegalLayout title="End User License Agreement (EULA)" lastUpdated="23 August 2026">
+      <Seo
+        title="EULA - End User License Agreement | CricAnalyst"
+        description="Review the End User License Agreement (EULA) for CricAnalyst platform, detailing usage terms, subscriptions, and intellectual property."
+        canonicalUrl="https://cricanalyst.io/eula"
+      />
       <div className="flex flex-col gap-4">
         <p className="text-gray-600 text-base md:text-lg leading-relaxed">
           This End User License Agreement ("EULA") governs access to and use

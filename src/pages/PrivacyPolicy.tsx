@@ -1,9 +1,15 @@
 import LegalLayout from "../components/LegalLayout";
 import LegalSection from "../components/LegalSection";
+import Seo from "../components/Seo";
 
 function PrivacyPolicy() {
   return (
     <LegalLayout title="CricAnalyst Privacy Policy" lastUpdated="23 August 2026">
+      <Seo
+        title="Privacy Policy - CricAnalyst"
+        description="Learn how CricAnalyst collects, uses, and safeguards your cricket match data, video footage, and personal information."
+        canonicalUrl="https://cricanalyst.io/privacy-policy"
+      />
       <p className="text-gray-600 text-base md:text-lg leading-relaxed">
         This Privacy Policy explains how CricAnalyst, operated by Green
         Stream Systems & Solutions (Private) Limited ("GreenStream") in

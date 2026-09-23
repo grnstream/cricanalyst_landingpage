@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import logoTransparent from "../assets/logo-transparent.png";
+import logoTransparent from "../assets/logo-transparent.webp";
 import Footer from "./Footer";
 
 const PLATFORM_URL = import.meta.env.VITE_PLATFORM_URL as string;
@@ -18,10 +18,13 @@ function LegalLayout({ title, lastUpdated, children }: LegalLayoutProps) {
       {/* Header */}
       <header className="w-full bg-white border-b border-gray-100">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-6 flex items-center justify-between">
-          <Link to="/" className="flex-shrink-0">
+          <Link to="/" className="flex-shrink-0" aria-label="CricAnalyst Home">
             <img
               src={logoTransparent}
               alt="CricAnalyst Logo"
+              width="160"
+              height="36"
+              decoding="async"
               className="h-8 md:h-10 lg:h-11 object-contain w-auto"
             />
           </Link>

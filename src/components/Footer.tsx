@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import logoWhite from "../assets/logo-white.png";
+import logoWhite from "../assets/logo-white.webp";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -48,19 +48,19 @@ function Footer() {
               <h4 className="font-semibold text-white mb-2">Quick Links</h4>
               <Link
                 to="/"
-                className="text-gray-400 hover:text-white transition-colors text-sm"
+                className="text-gray-400 hover:text-white transition-colors text-sm py-1"
               >
                 Home
               </Link>
               <a
                 href="/#about-us"
-                className="text-gray-400 hover:text-white transition-colors text-sm"
+                className="text-gray-400 hover:text-white transition-colors text-sm py-1"
               >
                 About Us
               </a>
               <a
                 href="/#features"
-                className="text-gray-400 hover:text-white transition-colors text-sm"
+                className="text-gray-400 hover:text-white transition-colors text-sm py-1"
               >
                 Features
               </a>
@@ -71,45 +71,50 @@ function Footer() {
                 <span>Email:</span>
                 <a
                   href="mailto:info@cricanalyst.io"
-                  className="hover:text-white transition-colors"
+                  className="hover:text-white transition-colors py-1"
                 >
                   info@cricanalyst.io
                 </a>
               </div>
               <div className="text-gray-400 text-sm flex flex-col gap-1 mt-2">
                 <span>Phone:</span>
-                <span>+94 76 889 0999</span>
+                <a
+                  href="tel:+94768890999"
+                  className="hover:text-white transition-colors py-1"
+                >
+                  +94 76 889 0999
+                </a>
               </div>
             </div>
             <div className="flex flex-col gap-4">
               <h4 className="font-semibold text-white mb-2">Support</h4>
               <a
                 href="/#faqs"
-                className="text-gray-400 hover:text-white transition-colors text-sm"
+                className="text-gray-400 hover:text-white transition-colors text-sm py-1"
               >
                 Help Center
               </a>
               <a
                 href="/#faqs"
-                className="text-gray-400 hover:text-white transition-colors text-sm"
+                className="text-gray-400 hover:text-white transition-colors text-sm py-1"
               >
                 FAQs
               </a>
               <a
                 href="/#contact"
-                className="text-gray-400 hover:text-white transition-colors text-sm"
+                className="text-gray-400 hover:text-white transition-colors text-sm py-1"
               >
                 Contact Us
               </a>
               <Link
                 to="/eula"
-                className="text-gray-400 hover:text-white transition-colors text-sm"
+                className="text-gray-400 hover:text-white transition-colors text-sm py-1"
               >
                 EULA
               </Link>
               <Link
                 to="/privacy-policy"
-                className="text-gray-400 hover:text-white transition-colors text-sm"
+                className="text-gray-400 hover:text-white transition-colors text-sm py-1"
               >
                 Privacy Policy
               </Link>
@@ -118,8 +123,11 @@ function Footer() {
               <h4 className="font-semibold text-white mb-2">Follow us on:</h4>
               <div className="flex gap-4 mt-1">
                 <a
-                  href="#"
-                  className="text-white hover:text-[#00B786] transition-colors"
+                  href="https://www.instagram.com/cricanalyst"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow CricAnalyst on Instagram"
+                  className="text-white hover:text-[#00B786] transition-colors p-2 -m-2"
                 >
                   <svg
                     className="w-5 h-5"
@@ -129,6 +137,7 @@ function Footer() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     viewBox="0 0 24 24"
+                    aria-hidden="true"
                   >
                     <rect
                       x="2"
@@ -143,8 +152,11 @@ function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="#"
-                  className="text-white hover:text-[#00B786] transition-colors"
+                  href="https://www.facebook.com/cricanalyst"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow CricAnalyst on Facebook"
+                  className="text-white hover:text-[#00B786] transition-colors p-2 -m-2"
                 >
                   <svg
                     className="w-5 h-5"
@@ -154,13 +166,17 @@ function Footer() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     viewBox="0 0 24 24"
+                    aria-hidden="true"
                   >
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                   </svg>
                 </a>
                 <a
-                  href="#"
-                  className="text-white hover:text-[#00B786] transition-colors"
+                  href="https://x.com/cricanalyst"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow CricAnalyst on X (Twitter)"
+                  className="text-white hover:text-[#00B786] transition-colors p-2 -m-2"
                 >
                   <svg
                     className="w-5 h-5"
@@ -170,6 +186,7 @@ function Footer() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     viewBox="0 0 24 24"
+                    aria-hidden="true"
                   >
                     <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
                   </svg>
@@ -188,10 +205,15 @@ function Footer() {
             to="/"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex-shrink-0"
+            aria-label="CricAnalyst Home"
           >
             <img
               src={logoWhite}
               alt="CricAnalyst Logo"
+              width="200"
+              height="44"
+              loading="lazy"
+              decoding="async"
               className="h-10 md:h-12 lg:h-16 object-contain w-auto"
             />
           </Link>
