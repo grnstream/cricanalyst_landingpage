@@ -1,10 +1,5 @@
 import { useState } from "react";
-import {
-  ArrowUpRight,
-  Plus,
-  Minus,
-  Send,
-} from "lucide-react";
+import { ArrowUpRight, Plus, Minus, Send } from "lucide-react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import heroBg from "../assets/hero-bg.webp";
@@ -197,9 +192,9 @@ function Home() {
               className="flex flex-col items-start lg:items-end gap-10 lg:gap-14 lg:max-w-[400px]"
             >
               <p className="text-gray-300 text-base sm:text-lg md:text-xl lg:text-right leading-relaxed font-medium">
-                Turn live match footage into powerful insights with real-time
-                ball-by-ball recording, video sniffing, advanced performance
-                tracking, and dynamic visualisation for modern cricket.
+                Transform live match footage into actionable insights through
+                ball-by-ball analysis, performance tracking, video analytics,
+                and dynamic visualisations for smarter cricket decisions.
               </p>
 
               {/* Member Widget */}
@@ -265,13 +260,13 @@ function Home() {
             </h2>
             <div className="flex flex-col gap-4 text-gray-500 text-lg md:text-xl lg:text-[1.35rem] leading-[1.6]">
               <p>
-                CricAnalyst is a ball-by-ball cricket recording and analysis
-                platform designed to capture match data in real time and
-                transform it into meaningful performance insights. By combining
-                structured match recording, video, statistics, and
-                visualisations, it creates a comprehensive digital record beyond
-                the traditional scorecard, enabling detailed analysis of every
-                aspect of the game.
+                CricAnalyst is a cricket data analysis platform designed to
+                capture live matches and transform ball-by-ball data into
+                actionable performance insights. By integrating real-time match
+                recording, video analysis, advanced statistics, and dynamic
+                visualisations, it enables comprehensive match analysis and
+                supports smarter, data-driven decisions beyond the traditional
+                scorecard.
               </p>
             </div>
           </motion.div>
@@ -361,24 +356,24 @@ function Home() {
             {[
               {
                 title: "Live Match Capture",
-                desc: "Capture every delivery in real time with integrated video recording, synced with ball by ball tagging for precise analysis.",
+                desc: "Capture every delivery in real time with live scoring, integrated video recording, and ball-by-ball synchronisation for accurate match records.",
                 image: img1,
                 strongFade: true,
               },
               {
                 title: "Ball by Ball Analytics",
-                desc: "Log every detail including runs, extras, dismissals, shot types, and bowler variations with structured data input.",
+                desc: "Record runs, extras, dismissals, shot types, and bowling variations to build detailed delivery-level datasets for in-depth performance analysis.",
                 image: img2,
               },
               {
                 title: "Advanced Visualizations",
-                desc: "Analyze performance using pitch maps, wagon wheels, and length tracking to uncover patterns and strategies.",
+                desc: "Explore wagon wheels, pitch maps, scoring zones, and interactive performance charts to uncover batting and bowling patterns.",
                 image: img4,
                 strongFade: true,
               },
               {
                 title: "Video & Data Insights",
-                desc: "Access recorded clips, download match data, generate reports to review performance and improve decision making.",
+                desc: "Link match footage to individual deliveries, making it easy to review specific balls, analyse key moments, and validate performance data.",
                 image: img3,
               },
             ].map((card, i) => (
