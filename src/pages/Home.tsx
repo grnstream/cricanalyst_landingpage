@@ -1,5 +1,14 @@
 import { useState } from "react";
-import { ArrowUpRight, Plus, Minus, Send, Video, Database, BarChart2, ChevronRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  Plus,
+  Minus,
+  Send,
+  Video,
+  Database,
+  BarChart2,
+  ChevronRight,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import heroBg from "../assets/hero-img.jpg";
@@ -181,74 +190,77 @@ function Home() {
 
           {/* Hero Content — vertically centred in remaining space */}
           <div className="flex-1 flex items-end lg:items-center pb-16 lg:pb-12">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="flex flex-col w-full gap-4 lg:gap-5 lg:max-w-[50vw]"
-          >
-            {/* Platform tagline */}
-            <motion.p
-              variants={fadeInUp}
-              className="text-gray-300 text-xs tracking-[0.22em] uppercase font-medium"
-            >
-              Cricket Analytics &amp; Performance Intelligence Platform
-            </motion.p>
-
-            {/* Main Headline */}
-            <motion.div variants={fadeInUp} className="flex flex-col gap-0">
-              <h1 className="text-white font-extrabold leading-[1.05] tracking-tight uppercase text-[clamp(1.4rem,3vw,2.6rem)]">
-                Cricket Match Capturing
-              </h1>
-              <span className="font-extrabold leading-[1] tracking-tight uppercase text-[clamp(2.5rem,6.5vw,5.5rem)]" style={{ color: "#00B786" }}>
-                Software
-              </span>
-            </motion.div>
-
-            {/* Sub-tagline */}
-            <motion.p
-              variants={fadeInUp}
-              className="text-gray-200 text-sm sm:text-base md:text-lg font-medium leading-relaxed"
-            >
-              From Ball-by-Ball Capture to Actionable Match Insights
-            </motion.p>
-
-            {/* Pipeline Icons */}
             <motion.div
-              variants={fadeInUp}
-              className="flex items-center gap-3 sm:gap-5 mt-1"
+              initial="hidden"
+              animate="visible"
+              variants={staggerContainer}
+              className="flex flex-col w-full gap-4 lg:gap-5 lg:max-w-[50vw]"
             >
-              {/* Capture */}
-              <div className="flex flex-col items-center gap-2">
-                <div className="w-11 h-11 sm:w-14 sm:h-14 border-2 border-[#00B786]/70 rounded-full flex items-center justify-center">
-                  <Video className="w-4 h-4 sm:w-6 sm:h-6 text-[#00B786]" />
-                </div>
-                <span className="text-white text-[9px] sm:text-[11px] font-bold tracking-[0.18em] uppercase">
-                  Capture
+              {/* Platform tagline */}
+              <motion.p
+                variants={fadeInUp}
+                className="text-gray-300 text-xs tracking-[0.22em] uppercase font-medium"
+              >
+                Cricket Analytics &amp; Performance Intelligence Platform
+              </motion.p>
+
+              {/* Main Headline */}
+              <motion.div variants={fadeInUp} className="flex flex-col gap-0">
+                <h1 className="text-white font-extrabold leading-[1.05] tracking-tight uppercase text-[clamp(1.4rem,3vw,2.6rem)]">
+                  Match Capturing &amp;
+                </h1>
+                <span
+                  className="font-extrabold leading-[1] tracking-tight uppercase text-[clamp(1.8rem,4.5vw,4rem)]"
+                  style={{ color: "#00B786" }}
+                >
+                  Analytical Tool
                 </span>
-              </div>
-              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-white/50 mb-5" />
-              {/* Analyse */}
-              <div className="flex flex-col items-center gap-2">
-                <div className="w-11 h-11 sm:w-14 sm:h-14 border-2 border-[#00B786]/70 rounded-full flex items-center justify-center">
-                  <Database className="w-4 h-4 sm:w-6 sm:h-6 text-[#00B786]" />
+              </motion.div>
+
+              {/* Sub-tagline */}
+              <motion.p
+                variants={fadeInUp}
+                className="text-gray-200 text-sm sm:text-base md:text-lg font-medium leading-relaxed"
+              >
+                From Ball-by-Ball Capture to Actionable Match Insights
+              </motion.p>
+
+              {/* Pipeline Icons */}
+              <motion.div
+                variants={fadeInUp}
+                className="flex items-center gap-3 sm:gap-5 mt-1"
+              >
+                {/* Capture */}
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-11 h-11 sm:w-14 sm:h-14 border-2 border-[#00B786]/70 rounded-full flex items-center justify-center">
+                    <Video className="w-4 h-4 sm:w-6 sm:h-6 text-[#00B786]" />
+                  </div>
+                  <span className="text-white text-[9px] sm:text-[11px] font-bold tracking-[0.18em] uppercase">
+                    Capture
+                  </span>
                 </div>
-                <span className="text-white text-[9px] sm:text-[11px] font-bold tracking-[0.18em] uppercase">
-                  Analyse
-                </span>
-              </div>
-              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-white/50 mb-5" />
-              {/* Insights */}
-              <div className="flex flex-col items-center gap-2">
-                <div className="w-11 h-11 sm:w-14 sm:h-14 border-2 border-[#00B786]/70 rounded-full flex items-center justify-center">
-                  <BarChart2 className="w-4 h-4 sm:w-6 sm:h-6 text-[#00B786]" />
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-white/50 mb-5" />
+                {/* Analyse */}
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-11 h-11 sm:w-14 sm:h-14 border-2 border-[#00B786]/70 rounded-full flex items-center justify-center">
+                    <Database className="w-4 h-4 sm:w-6 sm:h-6 text-[#00B786]" />
+                  </div>
+                  <span className="text-white text-[9px] sm:text-[11px] font-bold tracking-[0.18em] uppercase">
+                    Analyse
+                  </span>
                 </div>
-                <span className="text-white text-[9px] sm:text-[11px] font-bold tracking-[0.18em] uppercase">
-                  Insights
-                </span>
-              </div>
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-white/50 mb-5" />
+                {/* Insights */}
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-11 h-11 sm:w-14 sm:h-14 border-2 border-[#00B786]/70 rounded-full flex items-center justify-center">
+                    <BarChart2 className="w-4 h-4 sm:w-6 sm:h-6 text-[#00B786]" />
+                  </div>
+                  <span className="text-white text-[9px] sm:text-[11px] font-bold tracking-[0.18em] uppercase">
+                    Insights
+                  </span>
+                </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
           </div>
         </div>
 
