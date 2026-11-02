@@ -109,8 +109,17 @@ function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/70 via-transparent to-[#0a0a0a]/30" />
         </motion.div>
 
+        {/* Blue gradient glow — bottom left */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-72 z-[1] pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 75% 90% at 5% 100%, rgba(0,60,200,0.45) 0%, rgba(0,80,180,0.18) 45%, transparent 70%)",
+          }}
+        />
+
         {/* Main Content Wrapper */}
-        <div className="relative z-10 flex flex-col justify-between min-h-screen w-full max-w-[1400px] mx-auto px-6 py-8 md:px-12 md:py-10">
+        <div className="relative z-10 flex flex-col min-h-screen w-full max-w-[1400px] mx-auto px-6 py-8 md:px-12 md:py-10">
           {/* Header / Navbar */}
           <motion.header
             initial={{ opacity: 0, y: -20 }}
@@ -170,12 +179,13 @@ function Home() {
             </div>
           </motion.header>
 
-          {/* Hero Bottom Content */}
+          {/* Hero Content — vertically centred in remaining space */}
+          <div className="flex-1 flex items-end lg:items-center pb-16 lg:pb-12">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="flex flex-col w-full mb-4 lg:mb-10 gap-4 lg:gap-5 pt-12 lg:pt-0 lg:max-w-[50vw]"
+            className="flex flex-col w-full gap-4 lg:gap-5 lg:max-w-[50vw]"
           >
             {/* Platform tagline */}
             <motion.p
@@ -239,6 +249,20 @@ function Home() {
               </div>
             </motion.div>
           </motion.div>
+          </div>
+        </div>
+
+        {/* Bottom brand bar */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 border-t border-white/10 bg-black/25 backdrop-blur-sm">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-3 sm:py-4 flex items-center gap-3">
+            <span className="text-gray-400 text-[9px] sm:text-[11px] tracking-[0.3em] uppercase font-medium">
+              CricAnalyst
+            </span>
+            <span className="text-gray-600 text-xs">|</span>
+            <span className="text-gray-400 text-[9px] sm:text-[11px] tracking-[0.3em] uppercase font-medium">
+              Sports Data Intelligence
+            </span>
+          </div>
         </div>
       </section>
 
