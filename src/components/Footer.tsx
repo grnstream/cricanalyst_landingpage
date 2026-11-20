@@ -75,6 +75,12 @@ function Footer() {
                 >
                   info@cricanalyst.io
                 </a>
+                <a
+                  href="mailto:contact@greenstream.lk"
+                  className="hover:text-white transition-colors py-1"
+                >
+                  contact@greenstream.lk
+                </a>
               </div>
               <div className="text-gray-400 text-sm flex flex-col gap-1 mt-2">
                 <span>Phone:</span>
@@ -83,6 +89,12 @@ function Footer() {
                   className="hover:text-white transition-colors py-1"
                 >
                   +94 76 889 0999
+                </a>
+                <a
+                  href="tel:+94112223326"
+                  className="hover:text-white transition-colors py-1"
+                >
+                  +94 112 223 326
                 </a>
               </div>
             </div>
