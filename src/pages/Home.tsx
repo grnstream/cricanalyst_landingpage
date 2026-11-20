@@ -8,6 +8,7 @@ import {
   Database,
   BarChart2,
   ChevronRight,
+  Film,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
@@ -22,8 +23,43 @@ import img3 from "../assets/3.webp";
 import img4 from "../assets/4.webp";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
+import FeatureCarousel from "@/components/ui/feature-carousel";
+import type { CarouselFeature } from "@/components/ui/feature-carousel";
 
 const PLATFORM_URL = import.meta.env.VITE_PLATFORM_URL as string;
+
+const platformHighlights: CarouselFeature[] = [
+  {
+    id: "live-capture",
+    label: "Live Match Capture",
+    icon: Video,
+    image: img1,
+    description:
+      "Live scoring, video recording and ball-by-ball sync in one pass.",
+  },
+  {
+    id: "ball-by-ball",
+    label: "Ball by Ball Analytics",
+    icon: Database,
+    image: img2,
+    description:
+      "Runs, extras, dismissals, shot types and bowling variations.",
+  },
+  {
+    id: "visualizations",
+    label: "Advanced Visualizations",
+    icon: BarChart2,
+    image: img4,
+    description: "Wagon wheels, pitch maps and interactive scoring zones.",
+  },
+  {
+    id: "video-insights",
+    label: "Video & Data Insights",
+    icon: Film,
+    image: img3,
+    description: "Jump straight to the footage behind any single delivery.",
+  },
+];
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -371,20 +407,17 @@ function Home() {
         variants={staggerContainer}
         className="w-full bg-[#F6F7F9] pb-24 lg:pb-36 px-4 md:px-8 lg:px-12"
       >
-        <div className="max-w-[1400px] mx-auto bg-white rounded-[2rem] lg:rounded-[3rem] p-8 md:p-12 lg:p-16">
-          {/* Header Area */}
+        <div className="max-w-[1400px] mx-auto">
           <motion.div
             variants={fadeInUp}
-            className="flex flex-col gap-8 mb-12 lg:mb-20"
+            className="flex flex-col gap-8 mb-12 lg:mb-16"
           >
-            {/* Badge */}
             <div>
               <div className="inline-flex items-center justify-center px-6 py-2 border border-gray-300 rounded-full text-gray-800 text-sm font-medium tracking-wide">
                 Features
               </div>
             </div>
 
-            {/* Title & Description */}
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 lg:gap-20">
               <h2 className="text-[2rem] md:text-5xl lg:text-[2.5rem] font-bold text-black leading-[1.15] tracking-tight max-w-2xl">
                 Your Complete Cricket Analysis Platform
@@ -397,62 +430,13 @@ function Home() {
             </div>
           </motion.div>
 
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {[
-              {
-                title: "Live Match Capture",
-                desc: "Capture every delivery in real time with live scoring, integrated video recording, and ball-by-ball synchronisation for accurate match records.",
-                image: img1,
-                strongFade: true,
-              },
-              {
-                title: "Ball by Ball Analytics",
-                desc: "Record runs, extras, dismissals, shot types, and bowling variations to build detailed delivery-level datasets for in-depth performance analysis.",
-                image: img2,
-              },
-              {
-                title: "Advanced Visualizations",
-                desc: "Explore wagon wheels, pitch maps, scoring zones, and interactive performance charts to uncover batting and bowling patterns.",
-                image: img4,
-                strongFade: true,
-              },
-              {
-                title: "Video & Data Insights",
-                desc: "Link match footage to individual deliveries, making it easy to review specific balls, analyse key moments, and validate performance data.",
-                image: img3,
-              },
-            ].map((card, i) => (
-              <motion.div
-                key={i}
-                variants={fadeInUp}
-                className="relative group overflow-hidden rounded-2xl md:rounded-[1.5rem] aspect-video bg-[#d9d9d9]"
-              >
-                {card.image && (
-                  <img
-                    src={card.image}
-                    alt={card.title}
-                    width={640}
-                    height={360}
-                    loading="lazy"
-                    decoding="async"
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                )}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-b z-10 ${card.strongFade ? "from-black/10 via-black/70 to-black" : "from-transparent via-black/20 to-black/90"}`}
-                />
-                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 z-20 flex flex-col gap-3">
-                  <h3 className="text-white text-xl md:text-2xl font-bold">
-                    {card.title}
-                  </h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">
-                    {card.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div variants={fadeInUp}>
+            <FeatureCarousel
+              features={platformHighlights}
+              accentColor="#00B786"
+              className="md:p-0"
+            />
+          </motion.div>
         </div>
       </motion.section>
 
