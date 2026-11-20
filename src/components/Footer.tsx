@@ -122,8 +122,28 @@ function Footer() {
             <div className="flex flex-col gap-4">
               <h4 className="font-semibold text-white mb-2">Follow us on:</h4>
               <div className="flex gap-4 mt-1">
-                {/* <a
-                  href="https://www.instagram.com/cricanalyst"
+                <a
+                  href="https://www.facebook.com/cricanalyst.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow CricAnalyst on Facebook"
+                  className="text-white hover:text-[#00B786] transition-colors p-2 -m-2"
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                  </svg>
+                </a>
+                <a
+                  href="https://www.instagram.com/cricanalystlk"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Follow CricAnalyst on Instagram"
@@ -149,26 +169,6 @@ function Footer() {
                     ></rect>
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                  </svg>
-                </a> */}
-                <a
-                  href="https://www.facebook.com/cricanalyst.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Follow CricAnalyst on Facebook"
-                  className="text-white hover:text-[#00B786] transition-colors p-2 -m-2"
-                >
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                   </svg>
                 </a>
                 {/* <a
