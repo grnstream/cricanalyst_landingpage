@@ -43,7 +43,7 @@ function Footer() {
           </div>
 
           {/* Middle: Links */}
-          <div className="col-span-1 md:col-span-7 lg:col-span-8 grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="col-span-1 md:col-span-7 lg:col-span-8 grid grid-cols-2 lg:grid-cols-5 gap-6">
             <div className="flex flex-col gap-4">
               <h4 className="font-semibold text-white mb-2">Quick Links</h4>
               <Link
@@ -106,17 +106,26 @@ function Footer() {
               >
                 Contact Us
               </a>
+            </div>
+            <div className="flex flex-col gap-4">
+              <h4 className="font-semibold text-white mb-2">Legal</h4>
               <Link
-                to="/eula"
+                to="/terms-and-conditions"
                 className="text-gray-400 hover:text-white transition-colors text-sm py-1"
               >
-                EULA
+                Terms &amp; Conditions
               </Link>
               <Link
                 to="/privacy-policy"
                 className="text-gray-400 hover:text-white transition-colors text-sm py-1"
               >
                 Privacy Policy
+              </Link>
+              <Link
+                to="/eula"
+                className="text-gray-400 hover:text-white transition-colors text-sm py-1"
+              >
+                EULA
               </Link>
             </div>
             <div className="flex flex-col gap-4">

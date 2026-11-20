@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 
 const Eula = lazy(() => import("./pages/Eula"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 function ScrollToTop() {
@@ -44,6 +45,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/eula" element={<Eula />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
