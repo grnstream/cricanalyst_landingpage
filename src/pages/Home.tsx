@@ -9,6 +9,10 @@ import {
   BarChart2,
   ChevronRight,
   Film,
+  Users,
+  Target,
+  FileText,
+  Lightbulb,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
@@ -17,10 +21,14 @@ import heroBgMobile from "../assets/hero-img.jpg";
 import logoWhite from "../assets/logo-white.webp";
 import cricketerImg from "../assets/cricketer.webp";
 import groundImg from "../assets/ground.webp";
-import img1 from "../assets/1.webp";
-import img2 from "../assets/2.webp";
-import img3 from "../assets/3.webp";
-import img4 from "../assets/4.webp";
+import feature1 from "../assets/features/1-live-match-capture.webp";
+import feature2 from "../assets/features/2-ball-by-ball-analytics.webp";
+import feature3 from "../assets/features/3-advanced-visualisations.webp";
+import feature4 from "../assets/features/4-video-and-data-insights.webp";
+import feature5 from "../assets/features/5-player-performance-analysis.webp";
+import feature6 from "../assets/features/6-tactical-and-match-analysis.webp";
+import feature7 from "../assets/features/7-automated-reports-and-insights.webp";
+import feature8 from "../assets/features/8-data-driven-decision-support.webp";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
 import FeatureCarousel from "@/components/ui/feature-carousel";
@@ -30,34 +38,68 @@ const PLATFORM_URL = import.meta.env.VITE_PLATFORM_URL as string;
 
 const platformHighlights: CarouselFeature[] = [
   {
-    id: "live-capture",
+    id: "live-match-capture",
     label: "Live Match Capture",
     icon: Video,
-    image: img1,
+    image: feature1,
     description:
-      "Live scoring, video recording and ball-by-ball sync in one pass.",
+      "Capture every delivery in real time with live scoring, integrated video recording, and ball-by-ball synchronisation for accurate match records.",
   },
   {
-    id: "ball-by-ball",
-    label: "Ball by Ball Analytics",
+    id: "ball-by-ball-analytics",
+    label: "Ball-by-Ball Analytics",
     icon: Database,
-    image: img2,
+    image: feature2,
     description:
-      "Runs, extras, dismissals, shot types and bowling variations.",
+      "Record runs, extras, dismissals, shot types, and bowling variations to build detailed delivery-level datasets for in-depth performance analysis.",
   },
   {
-    id: "visualizations",
-    label: "Advanced Visualizations",
+    id: "advanced-visualisations",
+    label: "Advanced Visualisations",
     icon: BarChart2,
-    image: img4,
-    description: "Wagon wheels, pitch maps and interactive scoring zones.",
+    image: feature3,
+    description:
+      "Explore wagon wheels, pitch maps, scoring zones, and interactive performance charts to uncover batting and bowling patterns.",
   },
   {
-    id: "video-insights",
+    id: "video-data-insights",
     label: "Video & Data Insights",
     icon: Film,
-    image: img3,
-    description: "Jump straight to the footage behind any single delivery.",
+    image: feature4,
+    description:
+      "Link match footage to individual deliveries, making it easy to review specific balls, analyse key moments, and validate performance data.",
+  },
+  {
+    id: "player-performance",
+    label: "Player Performance Analysis",
+    icon: Users,
+    image: feature5,
+    description:
+      "Evaluate individual batters and bowlers through strike rates, averages, scoring options, dismissal patterns, bowling accuracy, and consistency.",
+  },
+  {
+    id: "tactical-analysis",
+    label: "Tactical & Match Analysis",
+    icon: Target,
+    image: feature6,
+    description:
+      "Analyse powerplay, middle-over, and death-over performance, partnerships, matchups, and scoring trends to identify tactical strengths and weaknesses.",
+  },
+  {
+    id: "automated-reports",
+    label: "Automated Reports & Insights",
+    icon: FileText,
+    image: feature7,
+    description:
+      "Generate structured match summaries, player reports, team comparisons, and performance breakdowns to simplify post-match reviews.",
+  },
+  {
+    id: "decision-support",
+    label: "Data-Driven Decision Support",
+    icon: Lightbulb,
+    image: feature8,
+    description:
+      "Turn match data into actionable insights that help coaches, analysts, and players prepare strategies, refine execution, and improve performance.",
   },
 ];
 
@@ -434,6 +476,8 @@ function Home() {
             <FeatureCarousel
               features={platformHighlights}
               accentColor="#00B786"
+              imageAspectClassName="aspect-[39/20]"
+              imageFitClassName="object-contain"
               className="md:p-0"
             />
           </motion.div>

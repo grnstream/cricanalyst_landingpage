@@ -131,6 +131,12 @@ export interface FeatureCarouselProps {
    * when the images are taller than they are wide.
    */
   imageAspectClassName?: string;
+  /**
+   * Tailwind object-fit class for the image. `object-cover` (the default)
+   * fills the frame and crops; pass `object-contain` for screenshots, where
+   * cropping would cut off real UI.
+   */
+  imageFitClassName?: string;
   className?: string;
 }
 
@@ -139,6 +145,7 @@ export function FeatureCarousel({
   accentColor = "#00B786",
   autoPlayInterval = DEFAULT_AUTO_PLAY_INTERVAL,
   imageAspectClassName = "aspect-video",
+  imageFitClassName = "object-cover",
   className,
 }: FeatureCarouselProps) {
   const [step, setStep] = useState(0);
@@ -264,7 +271,7 @@ export function FeatureCarousel({
       <>
         <span
           className={cn(
-            "flex items-center justify-center transition-colors duration-500",
+            "flex shrink-0 items-center justify-center transition-colors duration-500",
             isActive ? "text-white" : "text-white/35 group-hover:text-white/70",
           )}
         >
@@ -276,9 +283,9 @@ export function FeatureCarousel({
         </span>
         <span
           className={cn(
-            "tracking-tight whitespace-nowrap uppercase transition-all duration-500",
+            "min-w-0 truncate tracking-tight uppercase transition-all duration-500",
             isActive
-              ? "text-white font-semibold text-sm md:text-lg"
+              ? "text-white font-semibold text-sm md:text-[15px] xl:text-lg"
               : "text-white/45 font-normal text-[13px] md:text-[15px] group-hover:text-white/80",
           )}
         >
@@ -352,7 +359,7 @@ export function FeatureCarousel({
         </div>
 
         {/* Desktop: vertical menu rail */}
-        <div className="hidden lg:flex lg:w-[34%] relative z-30 flex-col items-start justify-center overflow-hidden pl-14 xl:pl-16 bg-[var(--fc-accent)]">
+        <div className="hidden lg:flex lg:w-[38%] relative z-30 flex-col items-start justify-center overflow-hidden pl-10 pr-6 xl:pl-14 bg-[var(--fc-accent)]">
           <div
             className="absolute inset-x-0 top-0 h-16 z-40"
             style={{
@@ -379,7 +386,7 @@ export function FeatureCarousel({
               return (
                 <motion.div
                   key={feature.id}
-                  style={{ height: ITEM_HEIGHT, width: "fit-content" }}
+                  style={{ height: ITEM_HEIGHT, width: "100%" }}
                   animate={{
                     y: wrappedDistance * ITEM_HEIGHT,
                     // Clamped: without it, lists of 9+ compute a negative opacity.
@@ -396,7 +403,7 @@ export function FeatureCarousel({
                     onClick={() => goToIndex(index)}
                     {...pauseHandlers}
                     aria-current={isActive || undefined}
-                    className={itemClassName}
+                    className={cn(itemClassName, "w-full")}
                   >
                     {renderLabel(feature, isActive, 18)}
                   </button>
@@ -407,7 +414,7 @@ export function FeatureCarousel({
         </div>
 
         {/* Card stack — swipeable */}
-        <div className="flex-1 relative bg-secondary/30 flex items-center justify-center py-8 md:py-14 lg:py-10 px-5 md:px-10 lg:px-10 overflow-hidden border-t lg:border-t-0 lg:border-l border-border/20">
+        <div className="flex-1 relative bg-secondary/30 flex flex-col items-center justify-center py-8 md:py-14 lg:py-10 px-5 md:px-10 lg:px-10 overflow-hidden border-t lg:border-t-0 lg:border-l border-border/20">
           <div
             onPointerDown={handleSwipeStart}
             onPointerUp={handleSwipeEnd}
@@ -438,7 +445,7 @@ export function FeatureCarousel({
                   }}
                   transition={cardSpring}
                   aria-hidden={!isActive}
-                  className="absolute inset-0 rounded-[1.25rem] md:rounded-[1.75rem] overflow-hidden border-4 md:border-[6px] border-background bg-background origin-center"
+                  className="absolute inset-0 rounded-[1.25rem] md:rounded-[1.75rem] overflow-hidden border-4 md:border-[6px] border-background bg-foreground origin-center"
                 >
                   <img
                     src={feature.image}
@@ -447,7 +454,8 @@ export function FeatureCarousel({
                     loading={index === 0 ? "eager" : "lazy"}
                     decoding="async"
                     className={cn(
-                      "w-full h-full object-cover transition-all duration-700",
+                      "w-full h-full transition-all duration-700",
+                      imageFitClassName,
                       isActive
                         ? "grayscale-0 blur-0"
                         : "grayscale blur-[2px] brightness-75",
@@ -462,10 +470,10 @@ export function FeatureCarousel({
                         exit={{ opacity: 0, y: 10 }}
                         className="absolute inset-x-0 bottom-0 p-5 md:p-8 pt-16 md:pt-28 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end pointer-events-none"
                       >
-                        <div className="bg-background text-foreground px-3 py-1 md:px-4 md:py-1.5 rounded-full text-[10px] md:text-[11px] font-normal uppercase tracking-[0.12em] md:tracking-[0.2em] w-fit shadow-lg mb-2 md:mb-3 border border-border/50">
-                          {index + 1} / {count} • {feature.label}
+                        <div className="bg-background text-foreground px-3 py-1 md:px-4 md:py-1.5 rounded-full text-[10px] md:text-[11px] font-normal uppercase tracking-[0.12em] md:tracking-[0.2em] w-fit max-w-full truncate shadow-lg mb-2 md:mb-3 border border-border/50">
+                          {feature.label}
                         </div>
-                        <p className="text-white font-normal text-base md:text-2xl leading-tight drop-shadow-md tracking-tight">
+                        <p className="hidden md:block text-white font-normal text-base lg:text-lg leading-snug drop-shadow-md tracking-tight">
                           {feature.description}
                         </p>
                       </motion.div>
@@ -487,6 +495,18 @@ export function FeatureCarousel({
               );
             })}
           </div>
+
+          {/* Below md the frame is only ~165px tall, so overlaying these
+              descriptions would bury the screenshot. Fixed min-height keeps
+              the block from jumping as captions of different lengths swap. */}
+          <motion.p
+            key={currentIndex}
+            initial={shouldReduceMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="md:hidden flex items-center justify-center text-center mt-4 min-h-[6.5rem] max-w-[46ch] text-sm leading-relaxed text-muted-foreground"
+          >
+            {features[currentIndex].description}
+          </motion.p>
         </div>
       </div>
     </div>
