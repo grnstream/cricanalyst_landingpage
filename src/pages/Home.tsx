@@ -3,7 +3,7 @@ import {
   ArrowUpRight,
   Plus,
   Minus,
-  Send,
+  // Send,
   Video,
   Database,
   BarChart2,
