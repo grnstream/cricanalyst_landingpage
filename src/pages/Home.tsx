@@ -610,7 +610,7 @@ function Home() {
                 analytics tools.
               </p>
 
-              <form
+              {/* <form
                 onSubmit={(e) => e.preventDefault()}
                 className="mt-4 relative max-w-md w-full"
               >
@@ -630,7 +630,7 @@ function Home() {
                 >
                   <Send className="w-4 sm:w-5 h-4 sm:h-5 text-white ml-[-2px]" />
                 </button>
-              </form>
+              </form> */}
             </motion.div>
 
             {/* Right: Players Image */}
