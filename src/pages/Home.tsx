@@ -8,6 +8,11 @@ import {
   Database,
   BarChart2,
   ChevronRight,
+  Film,
+  Users,
+  Target,
+  FileText,
+  Lightbulb,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
@@ -16,14 +21,87 @@ import heroBgMobile from "../assets/hero-img.jpg";
 import logoWhite from "../assets/logo-white.webp";
 import cricketerImg from "../assets/cricketer.webp";
 import groundImg from "../assets/ground.webp";
-import img1 from "../assets/1.webp";
-import img2 from "../assets/2.webp";
-import img3 from "../assets/3.webp";
-import img4 from "../assets/4.webp";
+import feature1 from "../assets/features/1-live-match-capture.webp";
+import feature2 from "../assets/features/2-ball-by-ball-analytics.webp";
+import feature3 from "../assets/features/3-advanced-visualisations.webp";
+import feature4 from "../assets/features/4-video-and-data-insights.webp";
+import feature5 from "../assets/features/5-player-performance-analysis.webp";
+import feature6 from "../assets/features/6-tactical-and-match-analysis.webp";
+import feature7 from "../assets/features/7-automated-reports-and-insights.webp";
+import feature8 from "../assets/features/8-data-driven-decision-support.webp";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
+import FeatureCarousel from "@/components/ui/feature-carousel";
+import type { CarouselFeature } from "@/components/ui/feature-carousel";
 
 const PLATFORM_URL = import.meta.env.VITE_PLATFORM_URL as string;
+
+const platformHighlights: CarouselFeature[] = [
+  {
+    id: "live-match-capture",
+    label: "Live Match Capture",
+    icon: Video,
+    image: feature1,
+    description:
+      "Capture every delivery in real time with live scoring, integrated video recording, and ball-by-ball synchronisation for accurate match records.",
+  },
+  {
+    id: "ball-by-ball-analytics",
+    label: "Ball-by-Ball Analytics",
+    icon: Database,
+    image: feature2,
+    description:
+      "Record runs, extras, dismissals, shot types, and bowling variations to build detailed delivery-level datasets for in-depth performance analysis.",
+  },
+  {
+    id: "advanced-visualisations",
+    label: "Advanced Visualisations",
+    icon: BarChart2,
+    image: feature3,
+    description:
+      "Explore wagon wheels, pitch maps, scoring zones, and interactive performance charts to uncover batting and bowling patterns.",
+  },
+  {
+    id: "video-data-insights",
+    label: "Video & Data Insights",
+    icon: Film,
+    image: feature4,
+    description:
+      "Link match footage to individual deliveries, making it easy to review specific balls, analyse key moments, and validate performance data.",
+  },
+  {
+    id: "player-performance",
+    label: "Player Performance Analysis",
+    icon: Users,
+    image: feature5,
+    description:
+      "Evaluate individual batters and bowlers through strike rates, averages, scoring options, dismissal patterns, bowling accuracy, and consistency.",
+  },
+  {
+    id: "tactical-analysis",
+    label: "Tactical & Match Analysis",
+    icon: Target,
+    image: feature6,
+    description:
+      "Analyse powerplay, middle-over, and death-over performance, partnerships, matchups, and scoring trends to identify tactical strengths and weaknesses.",
+  },
+  {
+    id: "automated-reports",
+    label: "Automated Reports & Insights",
+    icon: FileText,
+    image: feature7,
+    description:
+      "Generate structured match summaries, player reports, team comparisons, and performance breakdowns to simplify post-match reviews.",
+  },
+  {
+    id: "decision-support",
+    label: "Data-Driven Decision Support",
+    icon: Lightbulb,
+    image: feature8,
+    description:
+      "Turn match data into actionable insights that help coaches, analysts, and players prepare strategies, refine execution, and improve performance.",
+  },
+];
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -371,20 +449,17 @@ function Home() {
         variants={staggerContainer}
         className="w-full bg-[#F6F7F9] pb-24 lg:pb-36 px-4 md:px-8 lg:px-12"
       >
-        <div className="max-w-[1400px] mx-auto bg-white rounded-[2rem] lg:rounded-[3rem] p-8 md:p-12 lg:p-16">
-          {/* Header Area */}
+        <div className="max-w-[1400px] mx-auto">
           <motion.div
             variants={fadeInUp}
-            className="flex flex-col gap-8 mb-12 lg:mb-20"
+            className="flex flex-col gap-8 mb-12 lg:mb-16"
           >
-            {/* Badge */}
             <div>
               <div className="inline-flex items-center justify-center px-6 py-2 border border-gray-300 rounded-full text-gray-800 text-sm font-medium tracking-wide">
                 Features
               </div>
             </div>
 
-            {/* Title & Description */}
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 lg:gap-20">
               <h2 className="text-[2rem] md:text-5xl lg:text-[2.5rem] font-bold text-black leading-[1.15] tracking-tight max-w-2xl">
                 Your Complete Cricket Analysis Platform
@@ -397,62 +472,15 @@ function Home() {
             </div>
           </motion.div>
 
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {[
-              {
-                title: "Live Match Capture",
-                desc: "Capture every delivery in real time with live scoring, integrated video recording, and ball-by-ball synchronisation for accurate match records.",
-                image: img1,
-                strongFade: true,
-              },
-              {
-                title: "Ball by Ball Analytics",
-                desc: "Record runs, extras, dismissals, shot types, and bowling variations to build detailed delivery-level datasets for in-depth performance analysis.",
-                image: img2,
-              },
-              {
-                title: "Advanced Visualizations",
-                desc: "Explore wagon wheels, pitch maps, scoring zones, and interactive performance charts to uncover batting and bowling patterns.",
-                image: img4,
-                strongFade: true,
-              },
-              {
-                title: "Video & Data Insights",
-                desc: "Link match footage to individual deliveries, making it easy to review specific balls, analyse key moments, and validate performance data.",
-                image: img3,
-              },
-            ].map((card, i) => (
-              <motion.div
-                key={i}
-                variants={fadeInUp}
-                className="relative group overflow-hidden rounded-2xl md:rounded-[1.5rem] aspect-video bg-[#d9d9d9]"
-              >
-                {card.image && (
-                  <img
-                    src={card.image}
-                    alt={card.title}
-                    width={640}
-                    height={360}
-                    loading="lazy"
-                    decoding="async"
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                )}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-b z-10 ${card.strongFade ? "from-black/10 via-black/70 to-black" : "from-transparent via-black/20 to-black/90"}`}
-                />
-                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 z-20 flex flex-col gap-3">
-                  <h3 className="text-white text-xl md:text-2xl font-bold">
-                    {card.title}
-                  </h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">
-                    {card.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div variants={fadeInUp}>
+            <FeatureCarousel
+              features={platformHighlights}
+              accentColor="#00B786"
+              imageAspectClassName="aspect-[39/20]"
+              imageFitClassName="object-contain"
+              className="md:p-0"
+            />
+          </motion.div>
         </div>
       </motion.section>
 
@@ -582,7 +610,7 @@ function Home() {
                 analytics tools.
               </p>
 
-              <form
+              {/* <form
                 onSubmit={(e) => e.preventDefault()}
                 className="mt-4 relative max-w-md w-full"
               >
@@ -602,7 +630,7 @@ function Home() {
                 >
                   <Send className="w-4 sm:w-5 h-4 sm:h-5 text-white ml-[-2px]" />
                 </button>
-              </form>
+              </form> */}
             </motion.div>
 
             {/* Right: Players Image */}

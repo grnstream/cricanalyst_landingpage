@@ -43,7 +43,7 @@ function Footer() {
           </div>
 
           {/* Middle: Links */}
-          <div className="col-span-1 md:col-span-7 lg:col-span-8 grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="col-span-1 md:col-span-7 lg:col-span-8 grid grid-cols-2 lg:grid-cols-5 gap-6">
             <div className="flex flex-col gap-4">
               <h4 className="font-semibold text-white mb-2">Quick Links</h4>
               <Link
@@ -75,6 +75,12 @@ function Footer() {
                 >
                   info@cricanalyst.io
                 </a>
+                <a
+                  href="mailto:contact@greenstream.lk"
+                  className="hover:text-white transition-colors py-1"
+                >
+                  contact@greenstream.lk
+                </a>
               </div>
               <div className="text-gray-400 text-sm flex flex-col gap-1 mt-2">
                 <span>Phone:</span>
@@ -83,6 +89,12 @@ function Footer() {
                   className="hover:text-white transition-colors py-1"
                 >
                   +94 76 889 0999
+                </a>
+                <a
+                  href="tel:+94112223326"
+                  className="hover:text-white transition-colors py-1"
+                >
+                  +94 112 223 326
                 </a>
               </div>
             </div>
@@ -106,11 +118,14 @@ function Footer() {
               >
                 Contact Us
               </a>
+            </div>
+            <div className="flex flex-col gap-4">
+              <h4 className="font-semibold text-white mb-2">Legal</h4>
               <Link
-                to="/eula"
+                to="/terms-and-conditions"
                 className="text-gray-400 hover:text-white transition-colors text-sm py-1"
               >
-                EULA
+                Terms &amp; Conditions
               </Link>
               <Link
                 to="/privacy-policy"
@@ -118,12 +133,38 @@ function Footer() {
               >
                 Privacy Policy
               </Link>
+              <Link
+                to="/eula"
+                className="text-gray-400 hover:text-white transition-colors text-sm py-1"
+              >
+                EULA
+              </Link>
             </div>
             <div className="flex flex-col gap-4">
               <h4 className="font-semibold text-white mb-2">Follow us on:</h4>
               <div className="flex gap-4 mt-1">
-                {/* <a
-                  href="https://www.instagram.com/cricanalyst"
+                <a
+                  href="https://www.facebook.com/cricanalyst.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow CricAnalyst on Facebook"
+                  className="text-white hover:text-[#00B786] transition-colors p-2 -m-2"
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                  </svg>
+                </a>
+                <a
+                  href="https://www.instagram.com/cricanalystlk"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Follow CricAnalyst on Instagram"
@@ -149,26 +190,6 @@ function Footer() {
                     ></rect>
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                  </svg>
-                </a> */}
-                <a
-                  href="https://www.facebook.com/cricanalyst.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Follow CricAnalyst on Facebook"
-                  className="text-white hover:text-[#00B786] transition-colors p-2 -m-2"
-                >
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                   </svg>
                 </a>
                 {/* <a
